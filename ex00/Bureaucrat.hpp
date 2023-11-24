@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:44 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/24 16:28:37 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:43:54 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class Bureaucrat{
         public:
            virtual const char* what() const throw();
     };
+    void increment();
+    void decrement();
     std::string getName();
     int getGrade();
 };
