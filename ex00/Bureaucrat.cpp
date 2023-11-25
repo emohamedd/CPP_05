@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:40 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/24 16:48:54 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/25 10:30:48 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,30 @@ int Bureaucrat::getGrade(){
     return this->grade;
 }
 
+Bureaucrat::Bureaucrat() : name("Amine")
+{
+    std::cout << "default constructor called" << std::endl;
+}
+Bureaucrat::Bureaucrat(Bureaucrat &object)
+{
+    std::cout << "copy constructor called" << std::endl;
+    *this = object;
+}
+Bureaucrat Bureaucrat::operator=(Bureaucrat& object)
+{
+     std::cout << "copy assignement called" << std::endl;
+     this->grade = object.grade;
+     return *this;
+     
+}
+// std::ostream& operator<<(std::ostream& os, const Bureaucrat& point)
+// {
+//     os << point.getName() << " bureaucrat grade " << point.getGrade();
+// }
+Bureaucrat::~Bureaucrat()
+{
+    std::cout << "Destrucor called" << std::endl;
+}
 Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
 {
     if (grade < 1)
