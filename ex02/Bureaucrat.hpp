@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:44 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 17:19:18 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:07:29 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Bureaucrat{
         public:
            virtual const char* what() const throw();
     };
+    // void  executeForm(AForm const & form)
     void signForm(AForm& form) const;
     void increment();
     void decrement();

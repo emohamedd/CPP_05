@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:43:15 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 17:17:45 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:20:01 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ class AForm{
         AForm();
         AForm(std::string const name, int grade_tosign, int grade_toexec);
         ~AForm();
-        AForm(AForm &object);
-        AForm operator=(AForm&  object);
-
         std::string getName();
         int getGradeSign() const;
-        bool isFormSigned() const;
         int getExecuteGrade() const;
+        bool isFormSigned() const;
         void beSigned(Bureaucrat& object);
+        virtual void execute(Bureaucrat const &executor) const = 0;
 };
 std::ostream& operator<<(std::ostream& stream,  AForm& Aform);

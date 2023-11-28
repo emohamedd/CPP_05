@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:44:49 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 17:18:00 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:20:24 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ AForm::AForm() : name("Amine") , grade_tosign(10) , grade_toexec(10)
     std::cout << "default constructor called" << std::endl;
     this->indicator = false;
 }
-AForm::AForm(AForm &object) : name(object.name) , grade_tosign(object.grade_tosign) , grade_toexec(object.grade_toexec)
-{
-    std::cout << "copy constructor called" << std::endl;
-    this->indicator = object.indicator;
-    *this = object;
-}
-AForm AForm::operator=(AForm& object)
-{
-     std::cout << "copy assignement called" << std::endl;
-     this->indicator = object.indicator;
-     return *this;
-}
+// AForm::AForm(AForm &object) : name(object.name) , grade_tosign(object.grade_tosign) , grade_toexec(object.grade_toexec)
+// {
+//     std::cout << "copy constructor called" << std::endl;
+//     this->indicator = object.indicator;
+//     *this = object;
+// }
+// AForm AForm::operator=(AForm& object)
+// {
+//      std::cout << "copy assignement called" << std::endl;
+//      this->indicator = object.indicator;
+//      return *this;
+// }
 
 AForm::~AForm()
 {
@@ -83,4 +83,15 @@ const char* AForm::GradeTooLowException::what() const throw()
 std::ostream& operator<<(std::ostream& stream,  AForm& form){
     stream << "Name : " <<  form.getName() << std::endl   << "is_signed : " << form.isFormSigned() << std::endl << "Sign Grade : " << form.getGradeSign() << std::endl << "execute grade : " << form.getExecuteGrade() << std::endl;
     return stream;
+}
+void AForm::execute(Bureaucrat const &executor) const
+{
+    if (executor.getGrade() > this->getGradeSign() || executor.getGrade() > this->getExecuteGrade())
+    {
+        throw AForm::GradeTooLowException();
+    }
+    else if (this->isFormSigned() == false)
+    {
+        throw AForm::GradeTooHighException();
+    }
 }
