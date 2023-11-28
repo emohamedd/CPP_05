@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:44 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/26 19:43:45 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 09:22:44 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-
+#include "Form.hpp"
+class Form;
 class Bureaucrat{
     private:
         std::string const name;
@@ -33,6 +34,7 @@ class Bureaucrat{
         public:
            virtual const char* what() const throw();
     };
+    void signForm(Form& form) const;
     void increment();
     void decrement();
     std::string getName();
