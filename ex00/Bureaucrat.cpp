@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:40 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/25 10:30:48 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:59:58 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ Bureaucrat Bureaucrat::operator=(Bureaucrat& object)
      return *this;
      
 }
-// std::ostream& operator<<(std::ostream& os, const Bureaucrat& point)
-// {
-//     os << point.getName() << " bureaucrat grade " << point.getGrade();
-// }
+std::ostream& operator<<(std::ostream& stream,  Bureaucrat& obj)
+{
+    stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+    return stream;
+}
+
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Destrucor called" << std::endl;
