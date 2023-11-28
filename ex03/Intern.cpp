@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:06:37 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 19:34:34 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:49:05 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,38 @@ Intern::~Intern()
 {
     std::cout << "Destrucor called" << std::endl;
 }
+
+int index(std::string form)
+{
+    if (form == "robotomy request")
+        return 0;
+    else if (form == "presidential pardon")
+        return 1;
+    else if (form == "shrubbery creation")
+        return 2;
+    else
+        return -1;
+}
 AForm *Intern::makeForm(std::string form, std::string target)
 {
     std::cout << "Intern creates " << form << std::endl;
     
     AForm *newForm = NULL;
-    
-   switch (form[0])
-   {
-       case 'r':
+    int i = index(form);
+    switch (i)
+    {
+        case 0:
             newForm = new RobotomyRequestForm(target);
             break;
-        case 'p':
+        case 1:
             newForm = new PresidentialPardonForm(target);
             break;
-        case 's':
+        case 2:
             newForm = new ShrubberyCreationForm(target);
             break;
         default:
             std::cout << "Form not found" << std::endl;
             break;
-   }
+    }
     return newForm;
 }
