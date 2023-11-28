@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:43:15 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 18:20:01 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:35:34 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class AForm{
         AForm();
         AForm(std::string const name, int grade_tosign, int grade_toexec);
         ~AForm();
+        AForm(AForm &object);
+        AForm& operator=(AForm& object);
         std::string getName();
         int getGradeSign() const;
         int getExecuteGrade() const;
