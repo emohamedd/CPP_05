@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:44:49 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 18:35:59 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:57:18 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ AForm::AForm(const std::string  name, const int grade_tosign, const  int grade_t
     }
     this->indicator = false;
 }
-std::string AForm::getName()
+std::string AForm::getName() const
 {
     return(this->name);
 }
@@ -83,15 +83,4 @@ const char* AForm::GradeTooLowException::what() const throw()
 std::ostream& operator<<(std::ostream& stream,  AForm& form){
     stream << "Name : " <<  form.getName() << std::endl   << "is_signed : " << form.isFormSigned() << std::endl << "Sign Grade : " << form.getGradeSign() << std::endl << "execute grade : " << form.getExecuteGrade() << std::endl;
     return stream;
-}
-void AForm::execute(Bureaucrat const &executor) const
-{
-    if (executor.getGrade() > this->getGradeSign() || executor.getGrade() > this->getExecuteGrade())
-    {
-        throw AForm::GradeTooLowException();
-    }
-    else if (this->isFormSigned() == false)
-    {
-        throw AForm::GradeTooHighException();
-    }
 }
