@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:43:15 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 09:23:04 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:39:41 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,4 @@ class Form{
         int getExecuteGrade() const;
         void beSigned(Bureaucrat& object);
 };
+std::ostream& operator<<(std::ostream& stream,  Form& form);

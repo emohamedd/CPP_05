@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:44 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 09:22:44 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:59:55 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,4 @@ class Bureaucrat{
     std::string getName();
     int getGrade();
 };
-// std::ostream& operator<<(std::ostream& os, const Bureaucrat& point);
+std::ostream& operator<<(std::ostream& os,  Bureaucrat& point);

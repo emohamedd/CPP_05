@@ -6,7 +6,7 @@
 /*   By: emohamed <emohamed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:21:40 by emohamed          #+#    #+#             */
-/*   Updated: 2023/11/28 09:22:24 by emohamed         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:05:12 by emohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ Bureaucrat Bureaucrat::operator=(Bureaucrat& object)
      return *this;
      
 }
-// std::ostream& operator<<(std::ostream& os, const Bureaucrat& point)
-// {
-//     os << point.getName() << " bureaucrat grade " << point.getGrade();
-// }
+std::ostream& operator<<(std::ostream& stream,  Bureaucrat& obj)
+{
+    stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+    return stream;
+}
 Bureaucrat::~Bureaucrat()
 {
     std::cout << "Destrucor called" << std::endl;
@@ -87,7 +88,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 void Bureaucrat::signForm(Form& form) const
 {
     if (form.isFormSigned())
-        std::cout << this->name << " is signed " << form.getName() << std::endl;
+        std::cout << this->name << " signed " << form.getName() << std::endl;
     else
         std::cout << this->name << " could not sign " << form.getName() << "  the grade is low" << std::endl;    
 }
